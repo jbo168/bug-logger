@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bug.Logger.Common
+﻿namespace Bug.Logger.Common.Entity
 {
     public class Bug
     {

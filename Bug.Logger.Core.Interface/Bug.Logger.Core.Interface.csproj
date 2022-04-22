@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bug.Logger.Common\Bug.Logger.Common.csproj" />
+  </ItemGroup>
+
 </Project>
