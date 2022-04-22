@@ -6,6 +6,6 @@ namespace Bug.Logger.Core.Interface
 {
     public interface IBugService
     {
-        public Task<IEnumerable<Common.Bug>> GetAllAsync();
+        public Task<IEnumerable<Common.Entity.Bug>> GetAllAsync();
     }
 }

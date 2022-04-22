@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Bug.Logger.Core.Interface;
 
 
 namespace Bug.Logger.Web.Api.Client.Controllers
@@ -11,10 +12,17 @@ namespace Bug.Logger.Web.Api.Client.Controllers
     [ApiController]
     public class BugsController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<string> GetAll()
+        private readonly IBugService _bugService;
+
+        public BugsController(IBugService bugService)
         {
-            return new string[] { "value1", "value2" };
+            _bugService = bugService;
+        }
+
+        [HttpGet]
+        public Task<IEnumerable<Common.Entity.Bug>> GetAll()
+        {
+            return _bugService.GetAllAsync();
         }
 
         [HttpGet("{id}")]

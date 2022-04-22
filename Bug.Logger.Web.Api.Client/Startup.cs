@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Bug.Logger.Core;
+using Bug.Logger.Core.Interface;
 
 namespace Bug.Logger.Web.Api.Client
 {
@@ -21,9 +25,18 @@ namespace Bug.Logger.Web.Api.Client
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddControllers();
+
+
+            var builder = new ContainerBuilder();
+            builder.RegisterType<BugService>().As<IBugService>();
+            builder.Populate(services);
+
+
+            var container = builder.Build();
+            return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

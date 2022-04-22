@@ -7,7 +7,7 @@ namespace Bug.Logger.DAL
 {
     public class BugRepository : IBugRepository
     {
-        public Task<IEnumerable<Common.Bug>> GetAllAsync()
+        public Task<IEnumerable<Common.Entity.Bug>> GetAllAsync()
         {
             throw new NotImplementedException();
         }

@@ -6,6 +6,6 @@ namespace Bug.Logger.DAL.Interface
 {
     public interface IBugRepository
     {
-        public Task<IEnumerable<Common.Bug>>  GetAllAsync();
+        public Task<IEnumerable<Common.Entity.Bug>>  GetAllAsync();
     }
 }
